@@ -14,5 +14,4 @@ public class Hello {
 		String userName = scanner.next();
 		System.out.println("Hello " + userName);
 	}
-
 }

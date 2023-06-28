@@ -1,16 +1,29 @@
 package lesson1.classes;
 
 public class Student {
-	/*У нас будет класс Student с полями: String name, String group,
-float mark.
-При запуске программа запрашивает количество студентов,
-после чего запрашивает ввод каждого, пример: Введите количество -
-ввод "2" -> Введите студента 1 - ввод "Глеб Жук", Введите студента 2
-и так далее. Всех студентов храним в массиве. После ввода я хочу видеть
-меню с пунктами:
-1. Просмотр студентов
-2. Генерация оценок (от 1 до 10).
-3. Просмотр лучшего студента (максимальная оценка).
-При выборе пункта меню программа выполняет то, что выбрали, и продолжает работь,
-можно предусмотреть выход на отдельную кнопку, если есть желание.*/
+
+	private String name;
+	private String group;
+	private float mark;
+
+	public Student(String name) {
+		this.name = name;
+	}
+
+	public void setMark(float mark) {
+		this.mark = mark;
+	}
+
+	public float getMark() {
+		return this.mark;
+	}
+
+	@Override
+	public String toString() {
+		return "Student{" +
+				"name='" + name + '\'' +
+				", group='" + group + '\'' +
+				", mark=" + mark +
+				'}';
+	}
 }
