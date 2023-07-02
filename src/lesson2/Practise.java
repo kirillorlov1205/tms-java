@@ -54,13 +54,4 @@ public class Practise {
 		System.out.println("Sum of even numbers: " + sum);
 	}
 
-	public static void task3(int monthNum) {
-
-		if (monthNum == 12 || monthNum <= 2) {
-			System.out.println("Season is: " + Enums.Seasons.WINTER);
-		} else if (monthNum >= 3 && monthNum <= 6 ) {
-			System.out.println("Season is: " + Enums.Seasons.SPRING);
-		}
-
-		}
-	}
+}

@@ -8,4 +8,14 @@ public class Enums {
 		SUMMER,
 		AUTUMN,
 	}
+
+	public enum Colors{
+		RED,
+		ORANGE,
+		YELLOW,
+		GREEN,
+		LIGHT_BLUE,
+		BLUE,
+		PURPLE,
+	}
 }
