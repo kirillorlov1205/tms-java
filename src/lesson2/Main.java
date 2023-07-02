@@ -36,12 +36,12 @@ public class Main {
 		Hw.getNumbersInDesc();
 
 //		Hw task3 get Sum Of Numbers
-//		Hw.getNumbersSum();
+		Hw.getNumbersSum();
 
 //		Hw task4 get raw of numbers increased by seven
 		Hw.getAddSevenRaw();
 
-//		Hw task5
+//		Hw task5 Five numbers 0, -5, -10, -15
 		Hw.getFiveNumbersRaw();
 
 //		Hw task6 get Square
@@ -50,17 +50,12 @@ public class Main {
 //Additional tasks
 
 //		task 1 Fibonacci
-		System.out.println("Fibonacci");
 		Hw.fibonacci();
 
 //		task2 Bank
-		System.out.println("Bank");
-
-		Hw.deposit(10);
-
+		Hw.deposit(300, 2);
 
 //		task3 Multiplication Table
-		System.out.println("Multiplication Table");
 		Hw.getMultiplicationTable();
 		Hw.getPythagorasTable();
 	}

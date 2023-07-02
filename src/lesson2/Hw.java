@@ -7,7 +7,7 @@ public class Hw {
 //	Conditionals
 
 	public static void getSeasonByMonthIf(int monthNum) {
-
+		System.out.println("Get season by month with if");
 		if (monthNum == 12 || monthNum <= 2) {
 			System.out.println("Month with number '" + monthNum + "' is in season: " + Enums.Seasons.WINTER);
 		} else if (monthNum >= 3 && monthNum <= 5) {
@@ -23,7 +23,7 @@ public class Hw {
 	}
 
 	public static void getSeasonByMonthSwitch(int monthNum) {
-
+		System.out.println("Get season by month with switch");
 		switch (monthNum) {
 			case 12:
 			case 1:
@@ -52,10 +52,12 @@ public class Hw {
 	}
 
 	public static void isEven(int num) {
+		System.out.println("Check even");
 		System.out.println(num % 2 == 0);
 	}
 
 	public static void getWeatherByTempreture(int t) {
+		System.out.println("Weather by tempreture");
 		if (t > -5) {
 			System.out.println("Warm");
 		} else if (t > -20) {
@@ -66,6 +68,7 @@ public class Hw {
 	}
 
 	public static void getRainbowColorByNumber(int num) {
+		System.out.println("Rainbow colors by number");
 		switch (num) {
 			case 1:
 				System.out.println("Color with number '" + num + "' is = " + Enums.Colors.RED);
@@ -97,6 +100,7 @@ public class Hw {
 //	Loops
 
 	public static void getOddNumbers() {
+		System.out.println("Odd numbers");
 		for (int i = 1; i < 100; i++) {
 			if (i % 2 != 0) {
 				System.out.println(i);
@@ -105,12 +109,14 @@ public class Hw {
 	}
 
 	public static void getNumbersInDesc() {
+		System.out.println("Numbers in desc");
 		for (int i = 5; i > 0; i--) {
 			System.out.println(i);
 		}
 	}
 
 	public static void getNumbersSum() {
+		System.out.println("Numbers sum");
 		int sum = 0;
 		int num;
 		Scanner scanner = new Scanner(System.in);
@@ -123,6 +129,7 @@ public class Hw {
 	}
 
 	public static void getAddSevenRaw() {
+		System.out.println("Raw of numbers increased by seven");
 		int num = 7;
 		while (num <= 98) {
 			System.out.print(num + " ");
@@ -132,6 +139,7 @@ public class Hw {
 	}
 
 	public static void getFiveNumbersRaw() {
+		System.out.println("Five numbers raw");
 		int num = 0;
 		for (int i = 0; i < 10; i++) {
 			System.out.print(num + " ");
@@ -141,6 +149,7 @@ public class Hw {
 	}
 
 	public static void getSquaredNumbers() {
+		System.out.println("Squared numbers");
 		for (int i = 10; i <= 20; i++) {
 			System.out.print(i * i + " ");
 		}
@@ -148,7 +157,7 @@ public class Hw {
 	}
 
 	public static void fibonacci() {
-
+		System.out.println("Fibonacci");
 		int count = 11;
 		int[] arr = new int[count];
 		arr[0] = 1;
@@ -164,15 +173,19 @@ public class Hw {
 		System.out.println();
 	}
 
-//	public static double deposit(double deposit, int monthsQuantity) {
-//		double sum = 0;
-//		for (int i = 1; i <= monthsQuantity ; i++) {
-//			sum += deposit;
-//		}
-//		System.out.println("Sum after " + monthsQuantity + " months will be = " + sum);
-//	}
+	public static void deposit(double deposit, int monthsQuantity) {
+		System.out.println("Deposit");
+		double sum = 0;
+		double percentAmount;
+		for (int i = 1; i <= monthsQuantity; i++) {
+			percentAmount = (deposit + sum) * (7.0 / 100);
+			sum += percentAmount;
+		}
+		System.out.println("Sum after " + monthsQuantity + " months will be = " + sum);
+	}
 
 	public static void getMultiplicationTable() {
+		System.out.println("Multiplication Table");
 		for (int i = 1; i <= 10; i++) {
 			for (int j = 1; j <= 10; j++) {
 				System.out.println("(" + i + " * " + j + ") = " + i * j);
@@ -182,6 +195,7 @@ public class Hw {
 	}
 
 	public static void getPythagorasTable() {
+		System.out.println("Pythagoras table");
 		for (int i = 1; i <= 10; i++) {
 			for (int j = 1; j <= 10; j++) {
 				System.out.print(j * i + " ");
@@ -189,5 +203,4 @@ public class Hw {
 			System.out.println();
 		}
 	}
-
 }
