@@ -50,9 +50,10 @@ public class ParkingSystem {
 				parkingPlaces[i] = null;
 				System.out.println("Car with VIN:' " + vin + "' has been removed from parking");
 				break;
+			}else if (i == parkingPlaces.length - 1) {
+				  System.out.println("There is no car with vin: '" + vin + "'");  
 			}
 		}
-		System.out.println("There is no car with vin: '" + vin + "'");
 	}
 
 	public static int getFreePlaces() {
