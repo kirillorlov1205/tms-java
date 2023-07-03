@@ -1,5 +1,9 @@
 package lesson2;
 
+import lesson2.classes.Hw;
+import lesson2.classes.Practise;
+import lesson2.parkingTask.ParkingSystem;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -58,5 +62,8 @@ public class Main {
 //		task3 Multiplication Table
 		Hw.getMultiplicationTable();
 		Hw.getPythagorasTable();
+
+//		Parking
+		ParkingSystem.menu();
 	}
 }
