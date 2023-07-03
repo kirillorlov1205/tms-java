@@ -50,9 +50,9 @@ public class CollegeSystem {
 		for (int i = 0; i < students.length; i++) {
 			System.out.println("Введите студента " + index++);
 			Scanner scan = new Scanner(System.in);
-			String name="";
-			name+=scan.nextLine();
-			students[i] = new Student(name);
+			String name = scan.nextLine();
+			StringBuilder sb = new StringBuilder(name);
+			students[i] = new Student(sb.toString());
 		}
 	}
 
