@@ -159,16 +159,15 @@ public class Hw {
 	public static void fibonacci() {
 		System.out.println("Fibonacci");
 		int count = 11;
-		int[] arr = new int[count];
-		arr[0] = 1;
-		arr[1] = 2;
-
-		for (int i = 2; i < count; i++) {
-			arr[i] = arr[i - 1] + arr[i - 2];
-		}
+		int a = 1;
+		int b = 2;
+		int c;
 
 		for (int i = 0; i < count; i++) {
-			System.out.print(arr[i] + " ");
+			System.out.print(a + " ");
+			c = a + b;
+			a = b;
+			b = c;
 		}
 		System.out.println();
 	}
