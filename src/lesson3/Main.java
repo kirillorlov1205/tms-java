@@ -1,50 +1,45 @@
 package lesson3;
 
+import java.util.Arrays;
+
 public class Main {
 
 	public static void main(String[] args) {
 
+		int arrWithInt [] = {1,2,3,4,5,4,9,4};
+
 //		Hw task0 Check number in array
-		int arr [] = {1,2,3,4,5};
-		System.out.println(Hw.checkNumInArray(arr));
+//		System.out.println(Hw.checkNumInArray(arrWithInt));
 
 //		Hw task1 Remove number from array
+//		System.out.println(Arrays.toString(Hw.getArrayWithoutSelectedNumber(arrWithInt)));
 
-		int arrWithoutNumber [] = Hw.removeNumFromArray(arr);
+//		Hw task2 Get min middle max values of random array
+//		Hw.getBoundaryValuesOfArray();
+
+//		Hw task3 Compare two arrays
+//		Hw.getArraysComparison();
+
+//		Hw task4 Get array with even numbers
+//		Hw.getArrayWithEvenNumbers();
+
+//		Hw task5 Get array with odd index
+		Hw.getArrayWithOddIndex();
+
+//		Hw task6 Get array with names
+//		Hw.getArrayWithNames();
+
+//	  	Hw.task7 Sorting
+		Hw.sortArray();
+
+
+
 
 
 	}
 
 
-	/*
-1. Создайте массив целых чисел. Удалите все вхождения заданного
-числа из массива.
-Пусть число задается с консоли (класс Scanner). Если такого числа нет -
-выведите сообщения об этом.
-В результате должен быть новый массив без указанного числа.
-
-2. Создайте и заполните массив случайным числами и выведете
-максимальное, минимальное и среднее значение.
-Для генерации случайного числа используйте метод Math.random().
-Пусть будет возможность создавать массив произвольного размера.
-Пусть размер массива вводится с консоли.
-
-3. Создайте 2 массива из 5 чисел.
-Выведите массивы на консоль в двух отдельных строках.
-Посчитайте среднее арифметическое элементов каждого массива и
-сообщите, для какого из массивов это значение оказалось больше (либо
-сообщите, что их средние арифметические равны).
-Дополнительное задание
-
-4. Создайте массив из n случайных целых чисел и выведите его на
-экран.
-Размер массива пусть задается с консоли и размер массива может быть
-больше 5 и меньше или равно 10.
-Если n не удовлетворяет условию - выведите сообщение об этом.
-Если пользователь ввёл не подходящее число, то программа должна
-просить пользователя повторить ввод.
-Создайте второй массив только из чётных элементов первого массива,
-если они там есть, и вывести его на экран.
+	/*c
 
 5. Создайте массив и заполните массив.
 Выведите массив на экран в строку.
