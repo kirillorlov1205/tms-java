@@ -17,7 +17,7 @@ public class Main {
 //		System.out.println(Functions.sumOf2DArray());
 
 //		Hw2 task4 Get diagonals
-		Functions.getDiagonals();
+//		Functions.getDiagonals();
 
 //		Hw2 task5 Get sorted by chars string 2d array
 //		Functions.getSortedString2DArray();

@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class Functions {
 
 	public static boolean checkNumInArray(int[] arr) {
+		System.out.println("Provide number to find");
 		int num = Utilities.getConsoleNumber();
 
 		for (int i : arr) {
@@ -17,7 +18,7 @@ public class Functions {
 	}
 
 	public static int[] getArrayWithoutSelectedNumber(int[] arr) {
-
+		System.out.println("Provide number");
 		int num = Utilities.getConsoleNumber();
 
 		int numQuantity = 0;
@@ -41,33 +42,14 @@ public class Functions {
 	}
 
 	public static void getBoundaryValuesOfArray() {
+		System.out.println("Provide array size");
 		int num = Utilities.getConsoleNumber();
 		int arr[] = new int[num];
 		Utilities.fillArray(arr);
 		System.out.println(Arrays.toString(arr));
-		System.out.println("Max value in the array: '" + getMax(arr) + "'");
-		System.out.println("Min value in the array: '" + getMin(arr) + "'");
+		System.out.println("Max value in the array: '" + Utilities.getMax(arr) + "'");
+		System.out.println("Min value in the array: '" + Utilities.getMin(arr) + "'");
 		System.out.println("Average value in the array: '" + getAverage(arr) + "'");
-	}
-
-	private static int getMin(int[] arr) {
-		int min = arr[0];
-		for (int element : arr) {
-			if (min > element) {
-				min = element;
-			}
-		}
-		return min;
-	}
-
-	private static int getMax(int[] arr) {
-		int max = arr[0];
-		for (int element : arr) {
-			if (max < element) {
-				max = element;
-			}
-		}
-		return max;
 	}
 
 	private static int getAverage(int[] arr) {
@@ -101,6 +83,7 @@ public class Functions {
 		int num;
 
 		do {
+			System.out.println("Provide number");
 			num = Utilities.getConsoleNumber();
 			if (num > 5 && num <= 10) {
 				arr = new int[num];

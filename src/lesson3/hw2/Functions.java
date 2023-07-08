@@ -9,6 +9,7 @@ public class Functions {
 	public static void get3DArray() {
 		int[][][] arr = {{{1, 2, 3}, {1, 2, 3}}, {{1, 2, 3}, {1, 2, 3}}};
 
+		System.out.println("Provide number");
 		int num = Utilities.getConsoleNumber();
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr[i].length; j++) {
@@ -65,26 +66,36 @@ public class Functions {
 	}
 
 	public static void getDiagonals() {
-		int[][] arr = {{1, 2, 3}, {1,2,3}, {1,2,3}};
+		int[][] arr = {{1, 2, 5}, {2, 5, 2}, {1, 2, 5}};
 
-		for (int i = 0; i < arr.length ; i++) {
-			for (int j = arr[i].length - 1; j > 0 ; j--) {
-				System.out.println(arr[i][j]);
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j <= i; j++) {
+				int k = i - j;
+				System.out.print(arr[k][j] + " ");
 			}
+			System.out.println();
+		}
+
+		for (int i = arr.length - 2; i >= 0; i--) {
+			for (int j = 0; j <= i; j++) {
+				int k = i - j;
+				System.out.print(arr[arr.length - j - 1][arr.length - k - 1] + " ");
+			}
+			System.out.println();
 		}
 	}
 
 	public static void getSortedString2DArray() {
-		String [][] stringArr = {{"dcba","cdba"},{"bcda","adcb"}};
+		String[][] stringArr = {{"dcba", "cdba"}, {"bcda", "adcb"}};
 
 		for (int i = 0; i < stringArr.length; i++) {
-			for (int j = 0; j < stringArr[i].length ; j++) {
+			for (int j = 0; j < stringArr[i].length; j++) {
 				char[] charArray = stringArr[i][j].toCharArray();
 				Arrays.sort(charArray);
 				stringArr[i][j] = new String(charArray);
 			}
 		}
-		for (String [] element : stringArr) {
+		for (String[] element : stringArr) {
 			System.out.println(Arrays.toString(element));
 		}
 	}
