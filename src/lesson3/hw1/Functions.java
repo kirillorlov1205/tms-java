@@ -1,15 +1,12 @@
-package lesson3;
+package lesson3.hw1;
 
-import java.lang.reflect.Array;
+import lesson3.Utilities;
 import java.util.Arrays;
-import java.util.Scanner;
 
-public class Hw {
-
-	static Scanner scanner = new Scanner(System.in);
+public class Functions {
 
 	public static boolean checkNumInArray(int[] arr) {
-		int num = getConsoleNumber();
+		int num = Utilities.getConsoleNumber();
 
 		for (int i : arr) {
 			if (i == num) {
@@ -21,11 +18,11 @@ public class Hw {
 
 	public static int[] getArrayWithoutSelectedNumber(int[] arr) {
 
-		int num = getConsoleNumber();
+		int num = Utilities.getConsoleNumber();
 
 		int numQuantity = 0;
 
-		for (int element: arr) {
+		for (int element : arr) {
 			if (element == num) {
 				numQuantity++;
 			}
@@ -44,9 +41,9 @@ public class Hw {
 	}
 
 	public static void getBoundaryValuesOfArray() {
-		int num = getConsoleNumber();
+		int num = Utilities.getConsoleNumber();
 		int arr[] = new int[num];
-		fillArray(arr);
+		Utilities.fillArray(arr);
 		System.out.println(Arrays.toString(arr));
 		System.out.println("Max value in the array: '" + getMax(arr) + "'");
 		System.out.println("Min value in the array: '" + getMin(arr) + "'");
@@ -81,26 +78,6 @@ public class Hw {
 		return sum / arr.length;
 	}
 
-	private static void fillArray(int[] arr) {
-		for (int i = 0; i < arr.length; i++) {
-			arr[i] = (int) (Math.random() * 10);
-		}
-	}
-
-	public static int getConsoleNumber() {
-		int num = 0;
-
-		System.out.println("Provide number");
-
-		if (scanner.hasNextInt()) {
-			num = scanner.nextInt();
-		} else {
-			System.out.println("Incorrect number, your number will be '0'");
-		}
-
-		return num;
-	}
-
 	public static void getArraysComparison() {
 		int[] arr1 = {1, 2, 3, 4, 34};
 		int[] arr2 = {1, 2, 3, 100, 2};
@@ -124,7 +101,7 @@ public class Hw {
 		int num;
 
 		do {
-			num = getConsoleNumber();
+			num = Utilities.getConsoleNumber();
 			if (num > 5 && num <= 10) {
 				arr = new int[num];
 			} else {
@@ -133,7 +110,7 @@ public class Hw {
 			}
 		} while (num <= 5 || num > 10);
 
-		fillArray(arr);
+		Utilities.fillArray(arr);
 		System.out.println(Arrays.toString(arr));
 		System.out.println(Arrays.toString(getArrayWithEvenNumbers(arr)));
 	}
@@ -161,8 +138,8 @@ public class Hw {
 
 	public static void getArrayWithOddIndex() {
 
-		int [] arr = new int[10];
-		fillArray(arr);
+		int[] arr = new int[10];
+		Utilities.fillArray(arr);
 		System.out.println(Arrays.toString(arr));
 
 		for (int i = 0; i < arr.length; i++) {
@@ -173,19 +150,33 @@ public class Hw {
 		System.out.println(Arrays.toString(arr));
 	}
 
-	public static void sortArray() {
-
+	public static void sortArrayBubble(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr.length - i - 1; j++) {
+				if (arr[j + 1] < arr[j]) {
+					int num = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = num;
+				}
+			}
+		}
 	}
 
-//	public static void getArrayWithNames() {
-//		String [] namesArr = {"Kirill", "Citoria", "Boris","Avan"};
-//		Arrays.sort(namesArr);
-//		System.out.println(Arrays.toString(namesArr));
-//	}
+	public static void insertionSort(int[] arr) {
+		for (int i = 1; i < arr.length; i++) {
+			int current = arr[i];
+			int j = i;
+			while (j > 0 && arr[j - 1] > current) {
+				arr[j] = arr[j-1];
+				j--;
+			}
+			arr[j] = current;
+		}
+	}
 
-
-
-
-
+	public static void getArrayWithNames() {
+		String [] namesArr = {"Kirill", "Citoria", "Boris","Avan"};
+		Arrays.sort(namesArr);
+		System.out.println(Arrays.toString(namesArr));
+	}
 }
-
