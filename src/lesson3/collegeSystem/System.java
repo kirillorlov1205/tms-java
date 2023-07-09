@@ -9,33 +9,58 @@ public class System {
 	public static ArrayList<Student> journal = new ArrayList<>();
 
 	public static void menu() {
-		java.lang.System.out.println("Choose option");
-		java.lang.System.out.println("1. Get group with lower average mark\n" +
-				"2. Remove students with lowest mark (<4)" +
-				"3. Show all students\n" +
-				"4. Просмотр группы,\n" +
-				"5. Выход.");
+		int choice = 0;
+		do {
+			java.lang.System.out.println("Choose option:");
+			java.lang.System.out.println("1. Get group with lower average mark\n" +
+					"2. Remove students with lowest mark (<4)\n" +
+					"3. Show all students\n" +
+					"4. Show group\n" +
+					"5. Exit");
 
-		int choice = Utilities.getConsoleNumber();
+			choice = Utilities.getConsoleNumber();
 
-		switch (choice) {
-			case 1:
-				getGroupWithLowerAverageMark();
-				break;
-			case 2:
-				removeStudentsWithLowestMark();
-				java.lang.System.out.println(journal);
-				break;
-			case 3:
-				showAllStudents();
-				break;
-
-			case 4:
-		}
+			switch (choice) {
+				case 1:
+					getGroupWithLowerAverageMark();
+					break;
+				case 2:
+					removeStudentsWithLowestMark();
+					break;
+				case 3:
+					showAllStudents();
+					break;
+				case 4:
+					java.lang.System.out.println("Select group 1 or 2");
+					int group = Utilities.getConsoleNumber();
+					if (group == 1) {
+						showGroup(Enums.Groups.GROUP_1);
+					} else if (group == 2) {
+						showGroup(Enums.Groups.GROUP_2);
+					} else {
+						java.lang.System.out.println("There is no such group");
+					}
+					break;
+				case 5:
+					java.lang.System.out.println("Good day!");
+					break;
+			}
+		} while (choice != 5);
 	}
 
 	private static void showAllStudents() {
 		java.lang.System.out.println(journal);
+	}
+
+	private static void showGroup(Enums.Groups groupNumber) {
+		ArrayList<Student> group = new ArrayList<>();
+
+		for (Student student : journal) {
+			if (student.getGroup() == groupNumber) {
+				group.add(student);
+			}
+		}
+		java.lang.System.out.println(group);
 	}
 
 	private static void removeStudentsWithLowestMark() {

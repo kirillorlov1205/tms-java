@@ -1,19 +1,14 @@
 package lesson3.collegeSystem;
 
+import java.util.ArrayList;
+
 public class Main {
 	public static void main(String[] args) {
 
-		Student student1 = new Student("Kirill", Enums.Groups.GROUP_1, 10);
-		Student student2 = new Student("Dany", Enums.Groups.GROUP_1, 2);
-		Student student3 = new Student("Denis", Enums.Groups.GROUP_2, 3);
-		Student student4 = new Student("Mark", Enums.Groups.GROUP_2, 10.4);
-
-		System.journal.add(student1);
-		System.journal.add(student2);
-		System.journal.add(student3);
-		System.journal.add(student4);
-
-		java.lang.System.out.println(System.journal);
+		System.journal.add(new Student("Kirill", Enums.Groups.GROUP_1, 10));
+		System.journal.add(new Student("Dany", Enums.Groups.GROUP_1, 2));
+		System.journal.add(new Student("Denis", Enums.Groups.GROUP_2, 3));
+		System.journal.add(new Student("Mark", Enums.Groups.GROUP_2, 10.4));
 
 		System.menu();
 	}
