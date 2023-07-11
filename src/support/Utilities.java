@@ -1,4 +1,4 @@
-package lesson3;
+package support;
 
 import java.util.Scanner;
 
@@ -13,6 +13,16 @@ public class Utilities {
 			System.out.println("Incorrect number, your number will be '0'");
 		}
 		return num;
+	}
+
+	public static String getConsoleString() {
+		String str = "";
+		if (scanner.hasNextLine()) {
+			str = scanner.nextLine();
+		} else {
+			System.out.println("Please provide valid string");
+		}
+		return str;
 	}
 
 	public static void fillArray(int[] arr) {

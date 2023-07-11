@@ -1,6 +1,6 @@
 package lesson3.hw1;
 
-import lesson3.Utilities;
+import support.Utilities;
 import java.util.Arrays;
 
 public class Functions {

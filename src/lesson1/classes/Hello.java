@@ -1,6 +1,6 @@
 package lesson1.classes;
 
-import java.util.Scanner;
+import support.Utilities;
 
 public class Hello {
 
@@ -9,9 +9,8 @@ public class Hello {
 	}
 
 	public static void showHelloToUser() {
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("What's your name?");
-		String userName = scanner.next();
+		String userName = Utilities.getConsoleString();
 		System.out.println("Hello " + userName);
 	}
 }

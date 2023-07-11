@@ -1,6 +1,6 @@
 package lesson3.hw2;
 
-import lesson3.Utilities;
+import support.Utilities;
 
 import java.util.Arrays;
 

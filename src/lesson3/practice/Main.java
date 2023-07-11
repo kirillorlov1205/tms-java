@@ -1,6 +1,6 @@
 package lesson3.practice;
 
-import lesson3.Utilities;
+import support.Utilities;
 
 public class Main {
 

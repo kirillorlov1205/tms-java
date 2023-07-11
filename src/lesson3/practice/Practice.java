@@ -1,9 +1,8 @@
 package lesson3.practice;
 
-import lesson3.Utilities;
+import support.Utilities;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Practice {
 

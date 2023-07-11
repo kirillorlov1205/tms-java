@@ -48,7 +48,7 @@ public class ParkingSystem {
 		for (int i = 0; i < parkingPlaces.length; i++) {
 			if (parkingPlaces[i] != null && parkingPlaces[i].getVin().equals(vin)) {
 				parkingPlaces[i] = null;
-				System.out.println("Car with VIN:' " + vin + "' has been removed from parking");
+				System.out.println("Car with VIN: '" + vin + "' has been removed from parking");
 				break;
 			}else if (i == parkingPlaces.length - 1) {
 				  System.out.println("There is no car with vin: '" + vin + "'");  
