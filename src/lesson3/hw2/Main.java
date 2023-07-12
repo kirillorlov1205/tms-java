@@ -7,19 +7,19 @@ public class Main {
 		int arrWithInt[] = {1, 2, 3, 4, 5, 4, 9, 4};
 
 //		Hw2 task0 array with 3 levels
-//		Functions.get3DArray();
+		Functions.get3DArray();
 
 //		Hw2 task1
-//		Functions.getCheeseBoard();
+		Functions.getCheeseBoard();
 
 //	Additional tasks
 //		Hw2 task3 Get sum of 2d array
-//		System.out.println(Functions.sumOf2DArray());
+		System.out.println(Functions.sumOf2DArray());
 
 //		Hw2 task4 Get diagonals
-//		Functions.getDiagonals();
+		Functions.getDiagonals();
 
 //		Hw2 task5 Get sorted by chars string 2d array
-//		Functions.getSortedString2DArray();
+		Functions.getSortedString2DArray();
 	}
 }
