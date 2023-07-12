@@ -18,7 +18,7 @@ public class Utilities {
 	public static String getConsoleString() {
 		String str = "";
 		if (scanner.hasNextLine()) {
-			str = scanner.nextLine();
+			str = scanner.next();
 		} else {
 			System.out.println("Please provide valid string");
 		}

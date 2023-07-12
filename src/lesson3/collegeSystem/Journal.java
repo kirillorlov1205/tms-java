@@ -3,16 +3,17 @@ package lesson3.collegeSystem;
 import support.Utilities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Journal {
 
-    private static ArrayList<Student> journal = new ArrayList<>();
+    private static final ArrayList<Group> journalWithGroups = new ArrayList<>();
 
     public static void menu() {
         int choice = 0;
         do {
             System.out.println("Choose option:");
-            System.out.println("1. Get group with lower average mark\n" +
+            System.out.println("1. Get group with lowest average mark\n" +
                     "2. Remove students with lowest mark (<4)\n" +
                     "3. Show all students\n" +
                     "4. Show group\n" +
@@ -22,7 +23,7 @@ public class Journal {
 
             switch (choice) {
                 case 1:
-                    getGroupWithLowerAverageMark();
+                    getGroupWithLowestAverageMark();
                     break;
                 case 2:
                     removeStudentsWithLowestMark();
@@ -31,16 +32,9 @@ public class Journal {
                     showAllStudents();
                     break;
                 case 4:
-                    System.out.println("Select group 1 or 2");
-                    int group = Utilities.getConsoleNumber();
-                    if (group == 1) {
-                        showGroup(Enums.Groups.GROUP_1);
-                    } else if (group == 2) {
-                        showGroup(Enums.Groups.GROUP_2);
-                    } else {
-                        System.out.println();
-                        System.out.println("There is no such group");
-                    }
+                    System.out.println("Provide group name");
+                    String groupName = Utilities.getConsoleString();
+                    System.out.println(getGroupByName(groupName));
                     break;
                 case 5:
                     System.out.println("Good day!");
@@ -50,57 +44,59 @@ public class Journal {
     }
 
     private static void showAllStudents() {
-        System.out.println(journal);
-    }
-
-    private static void showGroup(Enums.Groups groupNumber) {
-        ArrayList<Student> group = new ArrayList<>();
-
-        for (Student student : journal) {
-            if (student.getGroup() == groupNumber) {
-                group.add(student);
-            }
+        for (Group group : journalWithGroups) {
+            System.out.println(group.getListOfStudentsInGroup());
         }
-        System.out.println(group);
     }
 
     private static void removeStudentsWithLowestMark() {
-        ArrayList<Student> studentToRemove = new ArrayList<>();
 
-        for (Student student : journal) {
-            if (student.getMark() < 4) {
-                studentToRemove.add(student);
-                System.out.println("Student: '" + student.getName() + "' has been removed");
+        for (Group group : journalWithGroups) {
+            ArrayList<Student> studentToRemove = new ArrayList<>();
+
+            for (Student student : group.getListOfStudentsInGroup()) {
+                if (student.getMark() < 4) {
+                    studentToRemove.add(student);
+                    System.out.println("Student: '" + student.getName() + "' has been removed");
+                    group.subtractGrade(student.getMark());
+                    group.reduceMark();
+                }
             }
-        }
-        journal.removeAll(studentToRemove);
-    }
 
-    private static void getGroupWithLowerAverageMark() {
-        double averageValueOfGroup1 = 0;
-        double averageValueOfGroup2 = 0;
-
-        for (Student student : journal) {
-            if (student.getGroup() == Enums.Groups.GROUP_1) {
-                averageValueOfGroup1 += student.getMark();
-            } else {
-                averageValueOfGroup2 += student.getMark();
-            }
-        }
-
-        System.out.println("Group 1 average mark is: '" + averageValueOfGroup1 + "'\n" +
-                "Group 2 average mark is: '" + averageValueOfGroup2 + "'");
-
-        if (averageValueOfGroup1 > averageValueOfGroup2) {
-            System.out.println("Group 2 has lower average mark than group 1");
-        } else if (averageValueOfGroup1 < averageValueOfGroup2) {
-            System.out.println("Group 1 has lower average mark than group 2");
-        } else {
-            System.out.println("Group 1 and group 2 have equal average marks");
+            group.getListOfStudentsInGroup().removeAll(studentToRemove);
         }
     }
 
-    public static ArrayList<Student> getJournal() {
-        return journal;
+    private static void getGroupWithLowestAverageMark() {
+
+        Group groupWithLowestAverageMark = getGroupByName("A");
+
+        for (Group group : journalWithGroups) {
+            if (groupWithLowestAverageMark.getGroupAverageMark() > group.getGroupAverageMark()) {
+                groupWithLowestAverageMark = group;
+            }
+        }
+        System.out.println("Group: '" + groupWithLowestAverageMark.getGroupName() + "' has the lowest average mark = '" + groupWithLowestAverageMark.getGroupAverageMark() + "'");
+    }
+
+    public static Group getGroupByName(String name) {
+
+        Group newGroup = new Group();
+
+        for (Group group : journalWithGroups) {
+            if (group.getGroupName().equals(name)) {
+                newGroup = group;
+                return newGroup;
+            }
+        }
+
+        if (newGroup.getGroupName() == null) {
+            System.out.println("There is no such group with name: '" + name + "'");
+        }
+        return null;
+    }
+
+    public static void addGroupsToJournal(Group[] groups) {
+        journalWithGroups.addAll(Arrays.asList(groups));
     }
 }
