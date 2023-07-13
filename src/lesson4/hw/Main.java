@@ -5,6 +5,7 @@ import lesson4.hw.task2.Computer;
 import lesson4.hw.task2.Enums;
 import lesson4.hw.task2.Hdd;
 import lesson4.hw.task2.Ram;
+import lesson4.hw.task3.Atm;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,8 +31,10 @@ public class Main {
         Computer computer2 = new Computer(2000, "HP", new Ram("Corsair",16), new Hdd("WD", 256, Enums.HDD_TYPES.INTERNAL));
         System.out.println(computer2);
 
-
-//      Hw task 3 Computer
-
+//      Hw task 3 ATM
+        Atm atm = new Atm(2,2,2);
+        atm.deposit(3);
+        System.out.println(atm.withdraw(50));
+        System.out.println(atm);
     }
 }
