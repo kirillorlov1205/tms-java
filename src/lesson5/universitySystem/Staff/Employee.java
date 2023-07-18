@@ -12,6 +12,7 @@ public class Employee {
         this.position = position;
     }
 
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -19,5 +20,17 @@ public class Employee {
                 ", lastName='" + lastName + '\'' +
                 ", position='" + position + '\'' +
                 '}';
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPosition() {
+        return position;
     }
 }

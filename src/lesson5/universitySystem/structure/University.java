@@ -28,8 +28,9 @@ public class University {
                     "2. Add an employee to the University\n" +
                     "3. Add a student to the dormitory\n" +
                     "4. Show all students\n" +
-                    "5. Show all employees\n" +
-                    "6. Exit");
+                    "5. Show dormitory by name\n" +
+                    "6. Show all employees\n" +
+                    "7. Exit");
 
             choice = Utilities.getConsoleNumber();
 
@@ -47,82 +48,71 @@ public class University {
                     System.out.println(this.students.toString());
                     break;
                 case 5:
-                    System.out.println(this.employees.toString());
+                    System.out.println(getDormitoryByName().toString());
                     break;
                 case 6:
+                    System.out.println(this.employees.toString());
+                    break;
+                case 7:
                     System.out.println("Good luck!");
                     break;
                 default:
                     System.out.println("Unknown action");
                     break;
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 
     private void addStudentToUniversity() {
-        System.out.println("Provide student first name");
-        String firstName = Utilities.getConsoleString();
-        System.out.println("Provide student last name");
-        String lastName = Utilities.getConsoleString();
-        System.out.println("Provide student group");
-        int group = Utilities.getConsoleNumber();
-        System.out.println("Provide student living place");
-        String livingPlace = Utilities.getConsoleString();
+        Student newStudent = createStudent();
 
-        this.students.add(new Student(firstName, lastName, group, livingPlace));
-        System.out.println("Student: '" + firstName + " " + lastName + "' has been added to the university ");
+        this.students.add(newStudent);
+        System.out.println("Student: '" + newStudent.getFirstName() + " " + newStudent.getLastName() + "' has been added to the university ");
     }
 
     private void addEmployeeToUniversity() {
-        System.out.println("Provide employee first name");
-        String firstName = Utilities.getConsoleString();
-        System.out.println("Provide employee last name");
-        String lastName = Utilities.getConsoleString();
-        System.out.println("Provide employee position place");
-        String position = Utilities.getConsoleString();
-
-        switch (position) {
-            case "Director":
-                this.employees.add(new Director(firstName, lastName, position));
-                System.out.println("Employee: '" + firstName + " " + lastName + "' has been added to the university ");
-                break;
-            case "Rector":
-                this.employees.add(new Rector(firstName, lastName, position));
-                System.out.println("Employee: '" + firstName + " " + lastName + "' has been added to the university ");
-                break;
-            case "Dean":
-                this.employees.add(new Dean(firstName, lastName, position));
-                System.out.println("Employee: '" + firstName + " " + lastName + "' has been added to the university ");
-                break;
-            default:
-                System.out.println("There is no such position");
-                break;
-        }
+        Employee newEmployee = createEmployee();
+        this.employees.add(newEmployee);
+        System.out.println("Employee {name: '" + newEmployee.getFirstName() + " " + newEmployee.getLastName() + "', position: '" + newEmployee.getPosition() + "'} has been added to the university");
     }
 
     private void addStudentToDormitory() {
 
-        Dormitory newDormitory = createDormitory();
-        Student newStudent = createStudent();
+        System.out.println("Provide student first name");
+        String firstName = Utilities.getConsoleString();
+        System.out.println("Provide student last name");
+        String lastName = Utilities.getConsoleString();
+        Student newStudent = getStudentByName(firstName, lastName);
 
-//        newDormitory.getRooms().add()
-//        try to resolve the issue
-        this.dormitories.add(newDormitory);
+        Dormitory newDormitory = getDormitoryByName();
+        String dormitoryName = newDormitory.getName();
 
-        System.out.println("Student: '" + newStudent.getFirstName() + " " + newStudent.getLastName() + "' has been added to the dormitory: '" + newDormitory.getName() + "'");
+        System.out.println("Provide room number");
+        int roomNumber = Utilities.getConsoleNumber();
+
+        if (newDormitory.getName().equals(dormitoryName) &&
+                newStudent.getFirstName().equals(firstName) &&
+                newStudent.getLastName().equals(lastName)) {
+            newDormitory.getRoomByNumber(roomNumber).getStudentsList().add(newStudent);
+
+            System.out.println("Student: '" + newStudent.getFirstName() + " " + newStudent.getLastName() + "' has been added to the dormitory: '" + newDormitory.getName() + "'");
+        } else {
+            System.out.println("Invalid info provided");
+        }
+
     }
 
-//    public Dormitory getDormitoryByName(String name) {
-//        for (Dormitory dormitory : dormitories
-//        ) {
-//            if (dormitory.getName().equals(name)) {
-//                return dormitory;
-//            } else {
-//                System.out.println("There is no dormitory with name: '" + dormitory.getName() + "'");
-//            }
-//        }
-//        return null;
-//    }
+    public Dormitory getDormitoryByName() {
+        System.out.println("Provide dormitory name");
+        String dormitoryName = Utilities.getConsoleString();
+        for (Dormitory dormitory : dormitories) {
+            if (dormitory.getName().equals(dormitoryName)) {
+                return dormitory;
+            }
+        }
+        System.out.println("There is no dormitory with name: '" + dormitoryName + "'");
+        return null;
+    }
 
     private Student createStudent() {
         System.out.println("Provide student first name");
@@ -139,20 +129,40 @@ public class University {
 
         return new Student(firstName, lastName, group, livingPlace);
     }
+    private Employee createEmployee() {
+        System.out.println("Provide employee first name");
+        String firstName = Utilities.getConsoleString();
+        System.out.println("Provide employee last name");
+        String lastName = Utilities.getConsoleString();
+        System.out.println("Provide employee position place");
+        String position = Utilities.getConsoleString();
 
-    private Dormitory createDormitory() {
-        System.out.println("Provide dormitory address");
-        String dormitoryAddress = Utilities.getConsoleString();
-
-        System.out.println("Provide dormitory name");
-        String dormitoryName = Utilities.getConsoleString();
-
-        return new Dormitory(dormitoryAddress, dormitoryName);
+        switch (position) {
+            case "Director" -> {
+                return new Director(firstName, lastName, position);
+            }
+            case "Rector" -> {
+                return new Rector(firstName, lastName, position);
+            }
+            case "Dean" -> {
+                return new Dean(firstName, lastName, position);
+            }
+            default -> System.out.println("There is no such position");
+        }
+        return null;
     }
 
-    private Room createRoom() {
-        System.out.println("Provide room number");
-        int roomNumber = Utilities.getConsoleNumber();
-        return new Room(roomNumber);
+    public Student getStudentByName(String firstName, String lastName) {
+        for (Student student : students) {
+            if (student.getFirstName().equals(firstName) && student.getLastName().equals(lastName)) {
+                return student;
+            }
+        }
+        System.out.println("There is no student with name: '" + firstName + " " + lastName);
+        return null;
+    }
+
+    public ArrayList<Dormitory> getDormitories() {
+        return dormitories;
     }
 }

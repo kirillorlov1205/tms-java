@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Room {
 
-    int number;
+    private int number;
     private ArrayList<Student> studentsList;
 
     public Room (int number) {
@@ -14,5 +14,17 @@ public class Room {
 
     public ArrayList<Student> getStudentsList() {
         return studentsList;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "number=" + number +
+                ", studentsList=" + studentsList +
+                '}';
     }
 }
