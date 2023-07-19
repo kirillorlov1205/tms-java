@@ -8,6 +8,6 @@ public class Worker extends Employee{
 
     @Override
     public void printPosition() {
-        System.out.println("Employee: '" + firstName + " " + lastName + "' is a worker");
+        System.out.println("Employee: '" + getFirstName() + " " + getLastName() + "' is a worker");
     }
 }

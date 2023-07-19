@@ -8,6 +8,6 @@ public class Director extends Employee {
 
     @Override
     public void printPosition() {
-        System.out.println("Employee: '" + firstName + " " + lastName + "' is a director");
+        System.out.println("Employee: '" + getFirstName() + " " + getLastName() + "' is a director");
     }
 }

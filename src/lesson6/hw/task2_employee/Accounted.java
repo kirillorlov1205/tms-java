@@ -8,6 +8,6 @@ public class Accounted extends Employee{
 
     @Override
     public void printPosition() {
-        System.out.println("Employee: '" + firstName + " " + lastName + "' is an accounted");
+        System.out.println("Employee: '" + getFirstName() + " " + getLastName() + "' is an accounted");
     }
 }

@@ -1,5 +1,9 @@
 package lesson6.hw;
 
+import lesson6.hw.task1_figure.Circle;
+import lesson6.hw.task1_figure.Figure;
+import lesson6.hw.task1_figure.Square;
+import lesson6.hw.task1_figure.Triangle;
 import lesson6.hw.task2_employee.Accounted;
 import lesson6.hw.task2_employee.Director;
 import lesson6.hw.task2_employee.Employee;
@@ -13,7 +17,20 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
+
 //    Task 1 Figure
+        Triangle triangle1 = new Triangle(10, 5, 10, 10, 5);
+        Circle circle = new Circle(5);
+        Square square = new Square(5);
+        Triangle triangle2 = new Triangle(7, 4, 6, 7, 4);
+        Circle circle2 = new Circle(7);
+
+        ArrayList<Figure> figuresList = new ArrayList<>(Arrays.asList(triangle1, circle, square, triangle2, circle2));
+
+        for (Figure figure : figuresList
+        ) {
+            figure.countPerimeter();
+        }
 
 //    Task 2 Employee
         Director director = new Director("kirill", "Orlov");
