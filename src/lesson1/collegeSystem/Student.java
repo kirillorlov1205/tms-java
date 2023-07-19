@@ -1,4 +1,4 @@
-package lesson1.classes;
+package lesson1.collegeSystem;
 
 public class Student {
 

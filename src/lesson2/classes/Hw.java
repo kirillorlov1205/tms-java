@@ -1,6 +1,6 @@
 package lesson2.classes;
 
-import java.util.Scanner;
+import support.Utilities;
 
 public class Hw {
 
@@ -118,10 +118,8 @@ public class Hw {
 	public static void getNumbersSum() {
 		System.out.println("Numbers sum");
 		int sum = 0;
-		int num;
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("Provide number");
-		num = scanner.nextInt();
+		int num = Utilities.getConsoleNumber();
 		for (int i = 1; i <= num; i++) {
 			sum += i;
 		}

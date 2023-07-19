@@ -1,7 +1,7 @@
 package lesson1;
 
 import lesson1.classes.Hello;
-import lesson1.classes.CollegeSystem;
+import lesson1.collegeSystem.Journal;
 
 public class Main {
 
@@ -11,7 +11,7 @@ public class Main {
 		Hello.showHelloToUser();
 
 //		Students
-		CollegeSystem.createStudentsList();
-		CollegeSystem.menu();
+		Journal.createStudentsList();
+		Journal.menu();
 	}
 }
