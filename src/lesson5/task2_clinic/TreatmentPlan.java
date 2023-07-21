@@ -1,15 +1,25 @@
 package lesson5.task2_clinic;
 
+import lesson5.task2_clinic.Staff.Doctor;
+
 public class TreatmentPlan {
 
-    private final int NUMBER;
+    private int number;
+    private Doctor doctor;
 
     public TreatmentPlan(int number) {
-        this.NUMBER = number;
+        this.number = number;
     }
 
     public int getNumber() {
-        return NUMBER;
+        return number;
     }
 
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
 }

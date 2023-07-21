@@ -1,6 +1,6 @@
 package lesson6.hw.task1_figure;
 
-public class Circle extends Figure {
+public class Circle implements Figure {
 
     private double radius;
 

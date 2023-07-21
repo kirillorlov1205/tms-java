@@ -1,6 +1,6 @@
 package lesson6.hw.task1_figure;
 
-public class Square extends Figure {
+public class Square implements Figure {
 
     private double sideLength;
 

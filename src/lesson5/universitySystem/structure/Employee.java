@@ -1,17 +1,18 @@
-package lesson5.universitySystem.Staff;
+package lesson5.universitySystem.structure;
+
+import lesson5.universitySystem.Position;
 
 public class Employee {
 
     private String firstName;
     private String lastName;
-    private String position;
+    private Position position;
 
-    public Employee(String firstName, String lastName, String position) {
+    public Employee(String firstName, String lastName, Position position) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;
     }
-
 
     @Override
     public String toString() {
@@ -30,7 +31,7 @@ public class Employee {
         return lastName;
     }
 
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 }
