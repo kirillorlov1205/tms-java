@@ -1,10 +1,10 @@
 package lesson5.universitySystem.structure;
 
-import lesson5.Utilities;
 import lesson5.universitySystem.Staff.Dean;
 import lesson5.universitySystem.Staff.Director;
 import lesson5.universitySystem.Staff.Employee;
 import lesson5.universitySystem.Staff.Rector;
+import support.Utilities;
 
 import java.util.ArrayList;
 

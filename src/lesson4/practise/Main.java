@@ -1,6 +1,6 @@
 package lesson4.practise;
 
-import lesson4.Utilities;
+import support.Utilities;
 
 import java.util.Arrays;
 
