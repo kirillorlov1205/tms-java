@@ -1,6 +1,6 @@
 package lesson6.hw.task1_figure;
 
-public class Triangle extends Figure {
+public class Triangle implements Figure {
 
     private double sideOne;
     private double sideTwo;

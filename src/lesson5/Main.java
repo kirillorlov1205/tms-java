@@ -28,15 +28,23 @@ public class Main {
         phone4.sendMessage(332345677, 293457698, 334567809);
 
 //------Task2 Clinic
-        ArrayList<Patient> patientsList = new ArrayList<>(Arrays.asList(
+
+        Clinic superClinic = new Clinic();
+
+        superClinic.getPatientsList().addAll(new ArrayList<>(Arrays.asList(
                 new Patient(new TreatmentPlan(1)),
                 new Patient(new TreatmentPlan(2)),
                 new Patient(new TreatmentPlan(3))
-        ));
+        )));
 
-        for (Patient patient : patientsList
+        for (Patient patient : superClinic.getPatientsList()
         ) {
             Clinic.getDoctorByTreatmentPlan(patient);
+        }
+
+        for (Patient patient : superClinic.getPatientsList()
+        ) {
+            patient.getTreatmentPlan().getDoctor().treat();
         }
 
     }

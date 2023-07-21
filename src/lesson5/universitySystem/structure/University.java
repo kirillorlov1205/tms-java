@@ -1,9 +1,6 @@
 package lesson5.universitySystem.structure;
 
-import lesson5.universitySystem.Staff.Dean;
-import lesson5.universitySystem.Staff.Director;
-import lesson5.universitySystem.Staff.Employee;
-import lesson5.universitySystem.Staff.Rector;
+import lesson5.universitySystem.Position;
 import support.Utilities;
 
 import java.util.ArrayList;
@@ -129,6 +126,7 @@ public class University {
 
         return new Student(firstName, lastName, group, livingPlace);
     }
+
     private Employee createEmployee() {
         System.out.println("Provide employee first name");
         String firstName = Utilities.getConsoleString();
@@ -139,13 +137,13 @@ public class University {
 
         switch (position) {
             case "Director" -> {
-                return new Director(firstName, lastName, position);
+                return new Employee(firstName, lastName, Position.DIRECTOR);
             }
             case "Rector" -> {
-                return new Rector(firstName, lastName, position);
+                return new Employee(firstName, lastName, Position.RECTOR);
             }
             case "Dean" -> {
-                return new Dean(firstName, lastName, position);
+                return new Employee(firstName, lastName, Position.DEAN);
             }
             default -> System.out.println("There is no such position");
         }
