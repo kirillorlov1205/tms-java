@@ -27,13 +27,12 @@ public class Utilities {
     }
 
     public static String getConsoleString() {
-        String str = "";
         if (scanner.hasNextLine()) {
-            str = scanner.next();
+            return scanner.next();
         } else {
             System.out.println("Please provide valid string");
         }
-        return str;
+        return null;
     }
 
     public static void fillArray(int[] arr) {
