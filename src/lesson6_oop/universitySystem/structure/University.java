@@ -42,7 +42,7 @@ public class University {
                     addStudentToDormitory();
                     break;
                 case 4:
-                    System.out.println(this.students.toString());
+                    showStudents();
                     break;
                 case 5:
                     System.out.println(getDormitoryByName().toString());
@@ -58,6 +58,14 @@ public class University {
                     break;
             }
         } while (choice != 7);
+    }
+
+    public void showStudents() {
+        if (this.students.isEmpty()) {
+            System.out.println("No students, they are at home. You better go too.");
+            return;
+        }
+        System.out.println(this.students.toString());
     }
 
     private void addStudentToUniversity() {
@@ -78,27 +86,26 @@ public class University {
 
         System.out.println("Provide student first name");
         String firstName = Utilities.getConsoleString();
+
         System.out.println("Provide student last name");
         String lastName = Utilities.getConsoleString();
+
         Student newStudent = getStudentByName(firstName, lastName);
 
-        Dormitory newDormitory = getDormitoryByName();
-        String dormitoryName = newDormitory.getName();
+        if (newStudent != null) {
+            Dormitory newDormitory = getDormitoryByName();
 
-        System.out.println("Provide room number");
-        int roomNumber = Utilities.getConsoleNumber();
+            if (newDormitory != null) {
+                System.out.println("Provide room number");
+                Room newRoom = newDormitory.getRoomByNumber(Utilities.getConsoleNumber());
 
-        if (newDormitory.getName().equals(dormitoryName) &&
-                newStudent.getFirstName().equals(firstName) &&
-                newStudent.getLastName().equals(lastName)) {
-            newDormitory.getRoomByNumber(roomNumber).getStudentsList().add(newStudent);
-
-            System.out.println("Student: '" + newStudent.getFirstName() + " " + newStudent.getLastName() +
-                    "' has been added to the dormitory: '" + newDormitory.getName() + "'");
-        } else {
-            System.out.println("Invalid info provided");
+                if (newRoom != null) {
+                    newRoom.getStudentsList().add(newStudent);
+                    System.out.println("Student: '" + newStudent.getFirstName() + " " + newStudent.getLastName() +
+                            "' has been added to the dormitory: '" + newDormitory.getName() + "'");
+                }
+            }
         }
-
     }
 
     public Dormitory getDormitoryByName() {
