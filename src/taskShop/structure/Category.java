@@ -37,6 +37,19 @@ public class Category {
         throw new WrongProductNameException("There is no product with name: '" + productName + "'");
     }
 
+    public void showProducts() {
+        System.out.println("Products: ");
+        int index = 1;
+        for (Product product : productsList
+        ) {
+            System.out.println(index++ +
+                    ". Name: " + product.getName() +
+                    ", Price: " + product.getPrice() +
+                    ", Rating: " + product.getRating());
+        }
+        System.out.println();
+    }
+
     @Override
     public String toString() {
         return "Category{" +

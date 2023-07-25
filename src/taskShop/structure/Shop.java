@@ -25,7 +25,7 @@ public class Shop {
                     "2. Show Categories\n" +
                     "3. Show products by category name\n" +
                     "4. Select a product to add in cart \n" +
-                    "5. Покупка товаров, находящихся в корзине\n" +
+                    "5. Buy a product in the cart\n" +
                     "6. Exit");
 
             choice = Utilities.getConsoleNumber();
@@ -36,29 +36,30 @@ public class Shop {
                     break;
                 case 2:
                     showCategories();
-//                    System.out.println(getCategoriesList());
+                    System.out.println(getCategoriesList());
                     break;
                 case 3:
                     try {
-                        System.out.println(getCategoryByName().getProductsList());
+                        showCategories();
+                        getCategoryByName().showProducts();
                     } catch (WrongCategoryNameException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case 4:
                     try {
-                        Category newCategory = getCategoryByName();
-                        System.out.println(newCategory.getProductsList());
-
-                        Product newProduct = newCategory.getProductByName();
-
-                        System.out.println("Provide login of the user you want to add a product to");
-                        getUserByLogin().getCart().getItemsListInTheBasket().add(newProduct);
-
+                        addProductToCart();
                     } catch (WrongCategoryNameException | WrongProductNameException | WrongUserLoginException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
+                case 5:
+                    try {
+                        buyProductInCart();
+                    } catch (WrongUserLoginException | WrongProductNameException e) {
+                        System.out.println(e.getMessage());
+                    }
+
             }
         } while (choice != 6);
     }
@@ -106,12 +107,55 @@ public class Shop {
     public ArrayList<User> getUsersList() {
         return usersList;
     }
-    
+
     public void showCategories() {
+        System.out.println("Categories: ");
         int index = 1;
         for (Category category : categoriesList
-             ) {
-            System.out.println(index++ + ". " + category.getName() + "\n");
+        ) {
+            System.out.println(index++ + ". " + category.getName());
+        }
+        System.out.println();
+    }
+
+    public void showUsers() {
+        System.out.println("Users: ");
+        int index = 1;
+        for (User user : usersList
+        ) {
+            System.out.println(index++ + ". " + user.getLogin());
+        }
+        System.out.println();
+    }
+
+    public void addProductToCart() throws WrongCategoryNameException, WrongProductNameException, WrongUserLoginException {
+        showCategories();
+        Category newCategory = getCategoryByName();
+
+        newCategory.showProducts();
+        Product newProduct = newCategory.getProductByName();
+
+        showUsers();
+        System.out.println("Provide login of the user you want to add a product to");
+
+        User newUser = getUserByLogin();
+        newUser.getCart().getProductsListInTheCart().add(newProduct);
+        System.out.println("Product: '" + newProduct.getName() + "' has been added to the user with login: '"
+                + newUser.getLogin() + "'");
+    }
+
+    public void buyProductInCart() throws WrongUserLoginException, WrongProductNameException {
+        showUsers();
+        System.out.println("Provide user login");
+        User newUser = getUserByLogin();
+
+        if (newUser.getCart().getProductsListInTheCart().isEmpty()) {
+            System.out.println("Cart is empty");
+        }else {
+            newUser.getCart().showProductsInCart();
+            Product newProduct = newUser.getCart().getProductInCartByName();
+            newUser.getCart().getProductsListInTheCart().remove(newProduct);
+            System.out.println("Product: '" + newProduct.getName() + "' has been bought\n");
         }
     }
 }

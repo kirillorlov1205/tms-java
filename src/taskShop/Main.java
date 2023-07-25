@@ -21,12 +21,12 @@ public class Main {
                 books,clothes, devices
         ));
 
-        shop.getUsersList().add(new User("kirill1", "TestPass"));
+        shop.getUsersList().add(new User("kirill", "TestPass"));
 
         books.getProductsList().addAll(Arrays.asList(
-                new Product("Harry Potter", 100, 9.9),
-                new Product("Unfuck yourself", 200, 8.1),
-                new Product("Just do it", 163.9, 9.0)
+                new Product("Beginning", 100, 9.9),
+                new Product("Life", 200, 8.1),
+                new Product("JustDoIt", 163.9, 9.0)
         ));
 
         shop.menu();
