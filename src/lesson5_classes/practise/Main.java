@@ -1,4 +1,4 @@
-package lesson5_classes.classes.practise;
+package lesson5_classes.practise;
 
 import support.Utilities;
 

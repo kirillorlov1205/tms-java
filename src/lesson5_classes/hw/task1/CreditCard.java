@@ -1,4 +1,4 @@
-package lesson5_classes.classes.hw.task1;
+package lesson5_classes.hw.task1;
 
 public class CreditCard {
     private String number;

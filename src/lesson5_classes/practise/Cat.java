@@ -1,4 +1,4 @@
-package lesson5_classes.classes.practise;
+package lesson5_classes.practise;
 
 public class Cat {
     private String name;

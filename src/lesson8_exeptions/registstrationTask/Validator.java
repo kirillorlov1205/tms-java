@@ -6,11 +6,11 @@ import lesson8_exeptions.registstrationTask.exceptions.WrongPasswordException;
 public class Validator {
 
     public static boolean validateLogin(String login) throws WrongLoginException {
-        if (Validator.hasSpaces(login)) {
+        if (Validator.containsNumbers(login)) {
             throw new WrongLoginException("login contains spaces\n"
                     + "Your login: '" + login + "'");
         }
-        if (Validator.hasOverLength(login)) {
+        if (Validator.isOverLength(login)) {
             throw new WrongLoginException("Login must contain less then 20 symbols\n"
                     + "Your login contains: " + login.length() + " symbols");
         }
@@ -18,15 +18,15 @@ public class Validator {
     }
 
     public static boolean validatePassword(String password) throws WrongPasswordException {
-        if (Validator.hasSpaces(password)) {
+        if (Validator.containsNumbers(password)) {
             throw new WrongPasswordException("Password contains spaces\n"
                     + "Your password: '" + password + "'");
         }
-        if (Validator.hasOverLength(password)) {
+        if (Validator.isOverLength(password)) {
             throw new WrongPasswordException("Password must contain less then 20 symbols\n"
                     + "Your password contains: " + password.length() + " symbols");
         }
-        if (!Validator.hasNumber(password)) {
+        if (!Validator.containsNumber(password)) {
             throw new WrongPasswordException("Password must contain a number\n" +
                     "Your password: '" + password + "'");
         }
@@ -42,7 +42,7 @@ public class Validator {
         return true;
     }
 
-    public static boolean hasSpaces(String login) {
+    public static boolean containsNumbers(String login) {
         for (int i = 0; i < login.length(); i++) {
             if (login.charAt(i) == ' ') {
                 return true;
@@ -51,11 +51,11 @@ public class Validator {
         return false;
     }
 
-    public static boolean hasOverLength(String login) {
+    public static boolean isOverLength(String login) {
         return login.length() >= 20;
     }
 
-    public static boolean hasNumber(String login) {
+    public static boolean containsNumber(String login) {
         char[] chars = login.toCharArray();
         for (char c : chars) {
             if (Character.isDigit(c)) {

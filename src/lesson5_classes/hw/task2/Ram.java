@@ -1,26 +1,23 @@
-package lesson5_classes.classes.hw.task2;
+package lesson5_classes.hw.task2;
 
-public class Hdd {
+public class Ram {
 
     private String name;
     private double capacity;
-    private Enums.HDD_TYPES type;
 
-    public Hdd(String name, double capacity, Enums.HDD_TYPES type) {
+    public Ram(String name, double capacity) {
         this.name = name;
         this.capacity = capacity;
-        this.type = type;
     }
 
-    public Hdd() {
+    public Ram() {
     }
 
     @Override
     public String toString() {
-        return "Hdd{" +
+        return "Ram{" +
                 "name='" + name + '\'' +
                 ", capacity=" + capacity +
-                ", type='" + type + '\'' +
                 '}';
     }
 }

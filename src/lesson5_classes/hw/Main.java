@@ -1,11 +1,11 @@
-package lesson5_classes.classes.hw;
+package lesson5_classes.hw;
 
-import lesson5_classes.classes.hw.task1.CreditCard;
-import lesson5_classes.classes.hw.task2.Computer;
-import lesson5_classes.classes.hw.task2.Enums;
-import lesson5_classes.classes.hw.task2.Hdd;
-import lesson5_classes.classes.hw.task2.Ram;
-import lesson5_classes.classes.hw.task3.Atm;
+import lesson5_classes.hw.task1.CreditCard;
+import lesson5_classes.hw.task2.Computer;
+import lesson5_classes.hw.task2.Enums;
+import lesson5_classes.hw.task2.Hdd;
+import lesson5_classes.hw.task2.Ram;
+import lesson5_classes.hw.task3.Atm;
 
 public class Main {
     public static void main(String[] args) {

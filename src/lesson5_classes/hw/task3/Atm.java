@@ -1,4 +1,4 @@
-package lesson5_classes.classes.hw.task3;
+package lesson5_classes.hw.task3;
 
 public class Atm {
     private int quantityOf20;

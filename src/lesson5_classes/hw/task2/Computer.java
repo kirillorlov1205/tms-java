@@ -1,4 +1,4 @@
-package lesson5_classes.classes.hw.task2;
+package lesson5_classes.hw.task2;
 
 public class Computer {
 
