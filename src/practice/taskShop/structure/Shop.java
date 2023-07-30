@@ -1,9 +1,9 @@
-package taskShop.structure;
+package practice.taskShop.structure;
 
 import support.Utilities;
-import taskShop.structure.exceptions.WrongCategoryNameException;
-import taskShop.structure.exceptions.WrongProductNameException;
-import taskShop.structure.exceptions.WrongUserLoginException;
+import practice.taskShop.structure.exceptions.WrongCategoryNameException;
+import practice.taskShop.structure.exceptions.WrongProductNameException;
+import practice.taskShop.structure.exceptions.WrongUserLoginException;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package taskShop.structure.exceptions;
+package practice.taskShop.structure.exceptions;
 
 public class WrongUserLoginException extends Exception {
 
