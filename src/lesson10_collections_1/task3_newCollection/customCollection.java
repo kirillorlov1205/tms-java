@@ -1,12 +1,12 @@
-package lesson10_collections_1.task3_customArray;
+package lesson10_collections_1.task3_newCollection;
 
 import java.util.LinkedList;
 
-public class customArray<T> {
+public class customCollection<T> {
 
     public LinkedList<T> list;
 
-    public customArray() {
+    public customCollection() {
         this.list = new LinkedList<>();
     }
 
@@ -24,7 +24,7 @@ public class customArray<T> {
 
     @Override
     public String toString() {
-        return "customArray{" +
+        return "customCollection{" +
                 "list=" + list +
                 '}';
     }

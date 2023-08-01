@@ -4,8 +4,11 @@ import lesson6_oop.universitySystem.Position;
 import support.Utilities;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class University {
+
+    private final Scanner SCANNER = new Scanner(System.in);
 
     private ArrayList<Student> students;
     private ArrayList<Employee> employees;
@@ -20,7 +23,8 @@ public class University {
     public void menu() {
         int choice;
         do {
-            System.out.println("Choose action\n" +
+            System.out.println("\n" +
+                    "Choose action\n" +
                     "1. Add a student to the University\n" +
                     "2. Add an employee to the University\n" +
                     "3. Add a student to the dormitory\n" +
@@ -77,9 +81,12 @@ public class University {
 
     private void addEmployeeToUniversity() {
         Employee newEmployee = createEmployee();
-        this.employees.add(newEmployee);
-        System.out.println("Employee {name: '" + newEmployee.getFirstName() + " " + newEmployee.getLastName()
-                + "', position: '" + newEmployee.getPosition() + "'} has been added to the university");
+
+        if (newEmployee != null) {
+            this.employees.add(newEmployee);
+            System.out.println("Employee {name: '" + newEmployee.getFirstName() + " " + newEmployee.getLastName()
+                    + "', position: '" + newEmployee.getPosition() + "'} has been added to the university");
+        }
     }
 
     private void addStudentToDormitory() {
@@ -122,27 +129,24 @@ public class University {
 
     private Student createStudent() {
         System.out.println("Provide student first name");
-        String firstName = Utilities.getConsoleString();
-
+        String firstName = SCANNER.nextLine();
         System.out.println("Provide student last name");
-        String lastName = Utilities.getConsoleString();
-
+        String lastName = SCANNER.nextLine();
         System.out.println("Provide student group");
         int group = Utilities.getConsoleNumber();
-
         System.out.println("Provide student living place");
-        String livingPlace = Utilities.getConsoleString();
+        String livingPlace = SCANNER.nextLine();
 
         return new Student(firstName, lastName, group, livingPlace);
     }
 
     private Employee createEmployee() {
         System.out.println("Provide employee first name");
-        String firstName = Utilities.getConsoleString();
+        String firstName = SCANNER.nextLine();
         System.out.println("Provide employee last name");
-        String lastName = Utilities.getConsoleString();
+        String lastName = SCANNER.nextLine();
         System.out.println("Provide employee position place");
-        String position = Utilities.getConsoleString();
+        String position = SCANNER.nextLine();
 
         switch (position) {
             case "Director" -> {

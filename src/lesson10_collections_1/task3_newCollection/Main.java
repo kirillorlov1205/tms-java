@@ -1,9 +1,9 @@
-package lesson10_collections_1.task3_customArray;
+package lesson10_collections_1.task3_newCollection;
 
 public class Main {
 
     public static void main(String[] args) {
-        customArray<String> arr = new customArray<>();
+        customCollection<String> arr = new customCollection<>();
 
         arr.add("element1");
         arr.add("element2");
