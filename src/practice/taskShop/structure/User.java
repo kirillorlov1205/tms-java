@@ -1,4 +1,4 @@
-package taskShop.structure;
+package practice.taskShop.structure;
 
 public class User {
 

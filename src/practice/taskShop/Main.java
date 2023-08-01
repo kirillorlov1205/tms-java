@@ -1,9 +1,9 @@
-package taskShop;
+package practice.taskShop;
 
-import taskShop.structure.Category;
-import taskShop.structure.Product;
-import taskShop.structure.Shop;
-import taskShop.structure.User;
+import practice.taskShop.structure.Category;
+import practice.taskShop.structure.Product;
+import practice.taskShop.structure.Shop;
+import practice.taskShop.structure.User;
 
 import java.util.Arrays;
 
