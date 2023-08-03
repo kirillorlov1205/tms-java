@@ -1,4 +1,4 @@
-package lesson2_git;
+package lesson3_git;
 
 public class Main {
     public static void main(String[] args) {

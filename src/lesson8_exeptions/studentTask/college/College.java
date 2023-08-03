@@ -9,7 +9,6 @@ public class College {
 
     private static ArrayList<Student> studentsList = new ArrayList<>();
 
-
     public static Student findStudentByName(String name) throws StudentNotFoundException {
         for (Student student : studentsList
         ) {

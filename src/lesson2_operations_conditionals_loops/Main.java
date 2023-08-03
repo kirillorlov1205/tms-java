@@ -62,6 +62,6 @@ public class Main {
 //		Hw.getPythagorasTable();
 
 //		Parking
-		ParkingSystem.menu();
+
 	}
 }
