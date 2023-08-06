@@ -1,5 +1,8 @@
 package lesson12_functional_programming;
 
+import lesson12_functional_programming.task1.User;
+import lesson12_functional_programming.task3.Developer;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -9,7 +12,7 @@ public class Functions {
     //      Task1 Optional
     public static Optional<User> getOptionalUser(String name) {
         User user = new User(name);
-        return Optional.ofNullable(null);
+        return Optional.ofNullable(user);
     }
 
     //      Task 2 Words with letter "A"
@@ -46,13 +49,10 @@ public class Functions {
                 .toList();
     }
 
-//    Task 6 Get date
-    /*Написать программу для вывода на консоль названия дня недели по введенной дате.
-     */
 
-//    public static getDayByDate(Date date) {
-//
-//    }
+//    Task 8
+
+
 
 
 }

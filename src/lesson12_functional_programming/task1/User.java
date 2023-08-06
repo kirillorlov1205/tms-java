@@ -1,4 +1,4 @@
-package lesson12_functional_programming;
+package lesson12_functional_programming.task1;
 
 public class User {
 
