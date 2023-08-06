@@ -19,33 +19,43 @@ public class Main {
 
     public static void main(String[] args) {
 
-//      Task1 Optional
+//------Task 1 Optional
         Optional<User> user = Functions.getOptionalUser("Kirill");
         User user1 = user.orElse(new User("DEFAULT"));
         System.out.println(user1.getName());
 
-//      Task 2 Words with letter "A"
+//------Task 2 Words with letter "A"
         List<String> strList = List.of("App", "Bro", "Dr", "Ho");
-        Functions.showWordsStartWithLetter("A", strList);
+        strList.stream()
+                .filter(word -> word.startsWith("A"))
+                .forEach(System.out::println);
 
-//      Task 3 Filter devs
-        List<Developer> devsList = List.of(
-                new Developer("Kirill", 1),
-                new Developer("Anna", 12),
-                new Developer("Anny", 11)
-        );
-        Functions.filterDevs(devsList);
+//------Task 3 Filter devs
+        Stream.of(new Developer("Kirill", 1), new Developer("Anna", 12), new Developer("Anny", 11))
+                .filter(dev -> dev.getId() > 10 && dev.getName().startsWith("An"))
+                .forEach(System.out::println);
 
-//      Task 4 sum of filtered Integers
+//------Task 4 sum of filtered Integers
         List<Integer> intsList = List.of(1, 2, 1, 5, 5, 19, 20, 24, 10, 2);
-        Functions.showSumOfFilteredIntegers(intsList);
 
-//      Task 5 Get filtered and reversed users list
+        int newValue = intsList.stream()
+                .distinct()
+                .filter(num -> num % 2 == 0)
+                .reduce(0, Integer::sum);
+        System.out.println("Sum is: '" + newValue + "'");
+
+//------Task  5 Get filtered and reversed users list
         Map<Integer, String> users = Map.of(1, "Den", 3, "Tonny", 8, "Tom");
         final List<Integer> RANGE = List.of(1, 2, 5, 8, 9, 13);
-        System.out.println(Functions.getFilteredReversedUsersList(users, RANGE));
 
-//      Task 6 IShape
+        users.entrySet().stream()
+                .filter(entry -> entry.getKey() != null
+                        && RANGE.contains(entry.getKey())
+                        && entry.getValue().length() % 2 != 0)
+                .map(entry -> new StringBuilder(entry.getValue()).reverse().toString())
+                .forEach(System.out::println);
+
+//------Task 6 IShape
         IShape square;
         square = (a, b) -> a * b;
 
@@ -81,17 +91,13 @@ public class Main {
 
         System.out.println(getInt.apply("100 BYN"));
 
-//------Task 10
-        /*Используя Consumer реализовать лямбду, которая будет принимать в себя строку в
-формате “*сумма* BYN”(через пробел, вместо *сумма* вставить любое значение), а
-выводить сумму, переведенную сразу в доллары.*/
-
-        Consumer<String> format = a -> a = String.valueOf(
-                Integer.parseInt(a.replaceAll("[^0-9]", "")) / 3);
+//------Task 10 Consumer
+        Consumer<String> format = sum ->
+                System.out.println(sum + " = "
+                        + Integer.parseInt(sum.replaceAll("[^0-9]", "")) / 3.2 + " USD");
         format.accept(value);
-        System.out.println(value);
 
-//------Task 11
+//------Task 11 Supplier
         System.out.println("Provide value");
         String newStr = Utilities.getConsoleString();
         Supplier<String> reverse = () -> new StringBuilder(newStr).reverse().toString();
